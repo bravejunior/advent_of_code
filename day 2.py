@@ -55,7 +55,7 @@ def get_points(key, value):
         return win_against[key]     
     return 0
 
-def r_p_s(data):
+def r_p_s_new(data):
     total_score = 0
     rounds = data.split('\n')
     for round in rounds:
@@ -66,7 +66,7 @@ def r_p_s(data):
             total_score += points
     return total_score
 
-print(r_p_s(data))
+print(r_p_s_new(data))
 
 # ----------------------------------------------
 # ---------------- answer = 12111---------------
