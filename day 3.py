@@ -1,5 +1,5 @@
 import string
-with open("day3_data.txt") as file:
+with open("data\day3_data.txt") as file:
     data = file.read()
 
 ########################################################

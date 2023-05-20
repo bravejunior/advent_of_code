@@ -1,4 +1,4 @@
-with open("day2_data.txt") as file:
+with open("data\day2_data.txt") as file:
     data = file.read()
 
 ########################################################
