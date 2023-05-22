@@ -110,3 +110,46 @@ print(get_crates_on_top(data))
 # After the rearrangement procedure completes,
 # what crate ends up on top of each stack?
 # ------------------------Part 2------------------------
+
+def get_crates_on_top_part_two(data):
+    stacks = get_stacks(data)
+    order = get_order(data)
+
+    for o in order:
+        parts = o.split()
+        num_to_move = int(parts[1])
+        source_stack = parts[3]
+        destination_stack = parts[5]
+        if num_to_move == 1:
+            for n in range(int(num_to_move)):
+                stack_from = stacks[str(source_stack)]
+                box = stack_from.pop()
+                stacks[str(destination_stack)].append(box)
+        else:
+            stack_from = stacks[str(source_stack)]
+            box_nr = len(stacks[str(source_stack)]) - 1
+            box_array = []
+            i = 0
+            while num_to_move > i:
+                box_array.append(stack_from[box_nr])
+                stack_from.pop()
+                box_nr -= 1
+                i += 1
+            box_array.reverse()
+
+            for box in box_array:
+                stacks[str(destination_stack)].append(box)
+            
+
+    top_boxes = []
+
+    for i in stacks:
+        arr = stacks[i]
+        top_boxes.append(arr.pop())
+
+    return top_boxes
+
+print(get_crates_on_top_part_two(data))
+
+# ------------------------------------------------------
+# ----------------- answer = WJVRLSJJT -----------------
